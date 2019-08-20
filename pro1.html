@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Vue Project</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js">
+</script>
+</head>
+<body>
+    <div id="app" class="container">
+        <h2>{{ title }}</h2>
+        <div class="input-group">
+
+            <input type="text" v-model="title">
+           
+        </div>
+        <p v-if="user > accept">
+            Hello {{message()}}
+        </p>        
+        
+        <p v-else>
+            Too young
+        </p>
+
+        <p v-if="check()">
+            Welcome
+        </p>
+    
+    </div>
+</body>
+<script>
+ 
+    new Vue({
+    el: '#app',
+    data: {
+        name:"fred",
+        user:19,
+        accept:18,
+        messages:'Welcome',
+        title: 'Test',
+    },
+    methods: {
+       message(){
+           return 'user '+ this.messages;
+       },
+       check(){
+           return this.name === "fred" ? true : false
+       }
+    }
+});
+</script>
+</html>
