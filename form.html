@@ -12,6 +12,10 @@
             <input v-model="title">
             <button type="submit">Submit</button>
         </form>
+
+        <form>
+            <input type="text" v-on:keyup.71="showText">                
+        </form>
         
     </div>
 </body>
@@ -21,15 +25,14 @@
     el: '#app',
     data: {
         name:'Frederick',
-        title:''
-
-        
+        title:''        
     },
     methods:{
             formhandle(event){
-           alert(this.title);
-
-           
+           alert(this.title);           
+        },
+        showText(event){
+            console.log(event.target.value);
         }
     }
 });
