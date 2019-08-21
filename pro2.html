@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Vue Project</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <h4>{{name}}</h4>
+        <button v-on:click="changename()">Hello</button>
+        
+        <div class="box" v-on:mousemove="hover()">
+
+        </div>
+
+        <p>X: {{x}}</p>
+        <p>Y: {{y}}</p>
+    </div>
+        
+    </div>
+</body>
+<script>
+ 
+    new Vue({
+    el: '#app',
+    data: {
+        name:'Frederick',
+        x:0,
+        y:0
+        
+    },
+    methods:{
+        changename(){
+            this.name = 'Timileyin';
+            setTimeout(()=>{
+                this.name = 'Frederick'
+            },2000);
+        },
+        hover(){
+            this.x = event.clientX;
+            this.y = event.clientY;
+        }
+    }
+});
+</script>
+
+<style>
+    .box{
+        background: red;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</html>

@@ -1,12 +1,13 @@
 <html>
 <head>
 <title>Vue Project</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js">
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
 </head>
 <body>
     <div id="app" class="container">
         <h2>{{ title }}</h2>
+        <h2 v-once>{{ title }}</h2>
+        {{update()}}
         <div class="input-group">
 
             <input type="text" v-model="title">
@@ -23,7 +24,20 @@
         <p v-if="check()">
             Welcome
         </p>
-    
+
+        <p v-show="name ==='fred'">me</p>
+        <p v-show="name !=='fred'">not</p>
+        <ul>
+            <li v-for="(cars,index) in car">
+                {{cars.name}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(value,key,index) in per">
+                {{index}} - {{key}} - {{value}}
+            </li>
+        </ul>
     </div>
 </body>
 <script>
@@ -31,18 +45,37 @@
     new Vue({
     el: '#app',
     data: {
+        title: 'Test',
+      per:{
         name:"fred",
         user:19,
         accept:18,
         messages:'Welcome',
-        title: 'Test',
+
+      },
+        car:[
+            {
+                name:'benz',
+                model:'AMG',
+        },
+        {
+            name:'toyoto',
+            model:'camry',
+        }
+        ] 
     },
+   
     methods: {
        message(){
            return 'user '+ this.messages;
        },
        check(){
            return this.name === "fred" ? true : false
+       },
+       update(){
+           setTimeout(()=>{
+               this.title = 'Holla'
+           },2000)
        }
     }
 });
