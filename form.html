@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Vue Project</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <h4>{{name}}</h4><br/>
+        <h4>{{title}}</h4>
+        
+        <form v-on:submit.prevent="formhandle">
+            <input v-model="title">
+            <button type="submit">Submit</button>
+        </form>
+        
+    </div>
+</body>
+<script>
+ 
+    new Vue({
+    el: '#app',
+    data: {
+        name:'Frederick',
+        title:''
+
+        
+    },
+    methods:{
+            formhandle(event){
+           alert(this.title);
+
+           
+        }
+    }
+});
+</script>
+
+<style>
+    .box{
+        background: red;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</html>
