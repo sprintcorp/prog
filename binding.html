@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Vue Project</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <h4>{{formData.name}}</h4>      
+        <form v-on:submit.prevent="formHandler">
+            <label>Firstname</label>
+            <input v-model.trim="formData.firstname">
+            <hr>
+            <label>Lastname</label>
+            <input v-model="formData.lastname">
+            <hr>
+            <label>Age</label>
+            <input v-model.number="formData.age">
+            <button type="submit">Submit</button>
+        </form> 
+    </div>
+</body>
+<script>
+ 
+    new Vue({
+        el: '#app',
+        data: {
+            formData:{
+            firstname:'',
+            lastname:'',
+            age:'',
+            name:'Two way binding',
+            }       
+        },
+        methods:{
+            formHandler(){
+           console.log(this.formData);           
+            }
+        }
+});
+</script>
+
+<style>
+    .box{
+        background: red;
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</html>
